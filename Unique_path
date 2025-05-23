@@ -1,0 +1,17 @@
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+
+        Row,Col=m-1,n-1
+
+        def dfs(row,col):
+
+            if row==Row and col==Col:
+                return 1
+
+            if row>Row or col>Col:
+                return 0
+
+            return dfs(row+1,col) + dfs(row,col+1)
+        
+        return dfs(0,0)
+        
